@@ -1,0 +1,127 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1613943060408-1
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: rolePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: deleted
+                              type: BIT
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: name
+                              type: VARCHAR(20)
+                    tableName: role
+    - changeSet:
+          id: 1613943060408-2
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: userPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: deleted
+                              type: BIT
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: email
+                              type: VARCHAR(50)
+                        - column:
+                              name: password
+                              type: VARCHAR(120)
+                        - column:
+                              name: username
+                              type: VARCHAR(20)
+                    tableName: user
+    - changeSet:
+          id: 1613943060408-3
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                              name: user_id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                              name: role_id
+                              type: BIGINT
+                    tableName: user_role
+    - changeSet:
+          id: 1613943060408-4
+          author: sumutella (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: email
+                    constraintName: UKob8kqyqqgmefl0aco34akdtpe
+                    tableName: user
+    - changeSet:
+          id: 1613943060408-5
+          author: sumutella (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: username
+                    constraintName: UKsb8bbouer5wak8vyiiy4pf2bx
+                    tableName: user
+    - changeSet:
+          id: 1613943060408-6
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: user_id
+                    baseTableName: user_role
+                    constraintName: FK859n2jvi8ivhui0rl0esws6o
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: user
+                    validate: true
+    - changeSet:
+          id: 1613943060408-7
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: role_id
+                    baseTableName: user_role
+                    constraintName: FKa68196081fvovjhkek5m97n3y
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: role
+                    validate: true
+

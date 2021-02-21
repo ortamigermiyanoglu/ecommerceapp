@@ -20,3 +20,7 @@ logging:
   level:
     org: info
     springframework: debug
+
+jwt:
+  secret: keepitsecret
+  expirationMs: 86400000

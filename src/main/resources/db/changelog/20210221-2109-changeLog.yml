@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1612126686306-1
+      author: sumutella (generated)
+      changes:
+        - sql:
+            sql:
+              INSERT INTO role(name,deleted,create_time) VALUES('ROLE_USER',0,CURRENT_TIMESTAMP());
+              INSERT INTO role(name,deleted,create_time) VALUES('ROLE_MODERATOR',0,CURRENT_TIMESTAMP());
+              INSERT INTO role(name,deleted,create_time) VALUES('ROLE_ADMIN',0,CURRENT_TIMESTAMP());
+
+

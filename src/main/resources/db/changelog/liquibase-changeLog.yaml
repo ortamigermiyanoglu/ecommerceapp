@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: src/main/resources/db/changelog/20210221-2130-changeLog.yml
+  - include:
+      file: src/main/resources/db/changelog/20210221-2109-changeLog.yml

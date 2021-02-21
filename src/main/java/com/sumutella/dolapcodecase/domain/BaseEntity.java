@@ -26,7 +26,6 @@ public class BaseEntity {
     private LocalDateTime createTime;
     @UpdateTimestamp
     private LocalDateTime lastUpdateTime;
-    private Long deletionToken = 0L;
     @NotNull
     private Boolean deleted = false;
 
