@@ -15,6 +15,8 @@
     <description>Dolap Code Case</description>
     <properties>
         <java.version>11</java.version>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
     </properties>
     <dependencies>
         <dependency>
@@ -72,7 +74,6 @@
             <scope>test</scope>
         </dependency>
 
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -120,8 +121,9 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-            <version>2.4.2</version>
+            <version>2.3.9.RELEASE</version>
         </dependency>
+
 
 
     </dependencies>
@@ -143,6 +145,41 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.2.2</version>
+                <configuration>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <changeLogFile>src/main/resources/db/changelog/liquibase-changeLog.yaml</changeLogFile>
+                    <diffChangeLogFile>src/main/resources/db/changelog/${timestamp}-changeLog.yml</diffChangeLogFile>
+                    <outputChangeLogFile>src/main/resources/db/changelog/${timestamp}-changeLog.yml
+                    </outputChangeLogFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase.ext</groupId>
+                        <artifactId>liquibase-hibernate5</artifactId>
+                        <version>4.2.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-validation</artifactId>
+                        <version>2.3.9.RELEASE</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-beans</artifactId>
+                        <version>5.3.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.springframework.data</groupId>
+                        <artifactId>spring-data-jpa</artifactId>
+                        <version>2.3.7.RELEASE</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
