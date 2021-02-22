@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Setter(AccessLevel.PRIVATE)
 @Getter
-public class BaseEntity {
+public abstract class BaseEntity {
     public static final String SOFT_DELETE_CLAUSE = "deleted = 0";
 
     @Id
