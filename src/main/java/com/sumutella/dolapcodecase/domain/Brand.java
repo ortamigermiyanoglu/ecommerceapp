@@ -6,6 +6,9 @@ import lombok.ToString;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Where(clause = BaseEntity.SOFT_DELETE_CLAUSE)
@@ -16,5 +19,9 @@ public class Brand extends BaseEntity {
     private String code;
     private String name;
     private String description;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_type_id")
+    private DomainValue brandType;
+
 
 }
