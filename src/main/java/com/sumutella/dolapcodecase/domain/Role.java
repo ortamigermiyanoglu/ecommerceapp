@@ -3,6 +3,7 @@ package com.sumutella.dolapcodecase.domain;
 import com.sumutella.dolapcodecase.domain.domainutil.ERole;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Enumerated;
 @Where(clause = BaseEntity.SOFT_DELETE_CLAUSE)
 @Setter
 @Getter
+@ToString
 public class Role extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(length = 20)

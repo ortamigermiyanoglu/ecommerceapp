@@ -3,6 +3,7 @@ package com.sumutella.dolapcodecase.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Setter(AccessLevel.PRIVATE)
 @Getter
+@ToString
 public abstract class BaseEntity {
     public static final String SOFT_DELETE_CLAUSE = "deleted = 0";
 

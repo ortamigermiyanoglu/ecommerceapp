@@ -2,6 +2,7 @@ package com.sumutella.dolapcodecase.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.ManyToOne;
 @Setter
 @Getter
 @Where(clause = BaseEntity.SOFT_DELETE_CLAUSE)
+@ToString
 public class Dress extends Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dress_type_id")

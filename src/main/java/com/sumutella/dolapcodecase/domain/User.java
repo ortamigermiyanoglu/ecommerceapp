@@ -2,6 +2,7 @@ package com.sumutella.dolapcodecase.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ import java.util.Set;
 })
 @Setter
 @Getter
+@ToString
 public class User extends BaseEntity {
     @NotBlank
     @Size(max = 20)
