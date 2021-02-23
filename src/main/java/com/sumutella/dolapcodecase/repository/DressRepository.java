@@ -7,7 +7,7 @@ import java.util.List;
 
 @Repository
 public interface DressRepository extends ProductRepository {
-    List<Dress> findAllByTypeCode(String typeCode);
+    List<Dress> findAllByDressTypeCode(String typeCode);
 
-    List<Dress> findAllByTypeIdAndSizeId(Long typeId, Long sizeId);
+    List<Dress> findAllByDressTypeIdAndSizeId(Long typeId, Long sizeId);
 }

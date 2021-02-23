@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 public class Dress extends Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dress_type_id")
-    private DomainValue type;
+    private DomainValue dressType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dress_size_id")

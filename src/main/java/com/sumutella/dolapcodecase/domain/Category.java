@@ -5,10 +5,9 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -19,8 +18,11 @@ public class Category extends BaseEntity {
     private String code;
     private String name;
     private String description;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_type_id", nullable = false)
-    private CategoryType categoryType;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "category_type_category_relation",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_type_id"))
+    private Set<CategoryType> categoryTypes = new HashSet<>();
+
 
 }

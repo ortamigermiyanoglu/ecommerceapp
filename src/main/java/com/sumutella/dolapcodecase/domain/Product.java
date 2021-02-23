@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.FetchType;
@@ -21,11 +20,8 @@ import java.math.BigDecimal;
 @ToString
 @MappedSuperclass
 public abstract class Product extends BaseEntity {
-    @Length.List({
-            @Length(min = 5, max = 20, message = "product name must be between {min} and {max}"),
-    })
-    private String name;
-    @DecimalMin("1.00")
+
+    @DecimalMin(value = "1.00", message = "price must be higher than {value}")
     @Digits(integer = 6, fraction = 2)
     private BigDecimal price;
     @Range(min = 0, max = 100, message = "discount percentage must be between {min} and {max}")

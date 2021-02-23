@@ -20,7 +20,7 @@ public class Shoe extends Product {
     private Integer size;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shoe_type_id")
-    private DomainValue type;
+    private DomainValue shoeType;
 
 
 }
