@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 @ToString
 @MappedSuperclass
 public abstract class Product extends BaseEntity {
-
+    private String description;
     @DecimalMin(value = "1.00", message = "price must be higher than {value}")
     @Digits(integer = 6, fraction = 2)
     private BigDecimal price;

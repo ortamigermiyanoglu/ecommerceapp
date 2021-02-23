@@ -1,18 +1,21 @@
 package com.sumutella.dolapcodecase.controller;
 
+import com.sumutella.dolapcodecase.exception.CommandOperationFailedException;
 import com.sumutella.dolapcodecase.exception.NotFoundException;
+import com.sumutella.dolapcodecase.payload.request.CreateShoeRequest;
 import com.sumutella.dolapcodecase.payload.response.CreateShoeModelResponse;
-import com.sumutella.dolapcodecase.service.BrandQueryService;
-import com.sumutella.dolapcodecase.service.CategoryQueryService;
-import com.sumutella.dolapcodecase.service.DomainValueQueryService;
+import com.sumutella.dolapcodecase.payload.response.MessageResponse;
+import com.sumutella.dolapcodecase.payload.response.ShoeResponse;
+import com.sumutella.dolapcodecase.service.*;
 import com.sumutella.dolapcodecase.util.BusinesConstants;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -22,9 +25,11 @@ public class ShoeProductController {
     private final DomainValueQueryService domainValueQueryService;
     private final BrandQueryService brandQueryService;
     private final CategoryQueryService categoryQueryService;
+    private final ShoeCommandService shoeCommandService;
+    private final ShoeQueryService shoeQueryService;
 
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     @ApiOperation(value = "", notes = "get create model for shoe product")
     public ResponseEntity<CreateShoeModelResponse> getCreateShoeProductModel() throws NotFoundException {
         CreateShoeModelResponse response = new CreateShoeModelResponse();
@@ -34,5 +39,18 @@ public class ShoeProductController {
         response.setUsageStatuses(domainValueQueryService.getDomainValues(BusinesConstants.USAGE_STATUS.getCode()));
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/products")
+    @ApiOperation(value = "", notes = "create shoe product")
+    public ResponseEntity<MessageResponse> createProduct(@RequestBody @Valid CreateShoeRequest createShoeRequest) throws NotFoundException, CommandOperationFailedException {
+        return ResponseEntity.ok(shoeCommandService.createShoe(createShoeRequest));
+    }
+
+    @PostMapping("/products/{productId}")
+    @ApiOperation(value = "", notes = "get shoe product")
+    public ResponseEntity<ShoeResponse> getProduct(@Positive @Valid @PathVariable("productId") Long productId) throws NotFoundException, CommandOperationFailedException {
+        return ResponseEntity.ok(new ShoeResponse(shoeQueryService.getShoe(productId)));
+    }
+
 
 }

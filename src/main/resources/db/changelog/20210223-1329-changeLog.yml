@@ -1,0 +1,22 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1614086973611-1
+          author: sumutella (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: description
+                              type: varchar(255)
+                    tableName: dress
+    - changeSet:
+          id: 1614086973611-2
+          author: sumutella (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              name: description
+                              type: varchar(255)
+                    tableName: shoe
+

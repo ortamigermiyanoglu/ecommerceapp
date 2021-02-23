@@ -1,7 +1,10 @@
 package com.sumutella.dolapcodecase.service;
 
+import com.sumutella.dolapcodecase.exception.CommandOperationFailedException;
+import com.sumutella.dolapcodecase.exception.NotFoundException;
 import com.sumutella.dolapcodecase.payload.request.CreateShoeRequest;
+import com.sumutella.dolapcodecase.payload.response.MessageResponse;
 
 public interface ShoeCommandService {
-    void createShoe(CreateShoeRequest createShoeRequest);
+    MessageResponse createShoe(CreateShoeRequest createShoeRequest) throws NotFoundException, CommandOperationFailedException;
 }

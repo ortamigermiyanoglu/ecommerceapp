@@ -24,5 +24,6 @@ public abstract class CreateProductRequest {
     @DecimalMin("1.00")
     @Digits(integer = 6, fraction = 2)
     private BigDecimal price;
+    private String description;
 
 }

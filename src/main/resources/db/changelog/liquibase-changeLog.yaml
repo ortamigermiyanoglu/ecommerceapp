@@ -7,3 +7,5 @@ databaseChangeLog:
       file: src/main/resources/db/changelog/20210223-1153-changeLog.yml
   - include:
       file: src/main/resources/db/changelog/20210222-2316-changeLog.yml
+  - include:
+      file: src/main/resources/db/changelog/20210223-1329-changeLog.yml

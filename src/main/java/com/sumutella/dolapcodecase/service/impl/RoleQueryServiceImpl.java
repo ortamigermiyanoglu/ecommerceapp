@@ -6,9 +6,11 @@ import com.sumutella.dolapcodecase.repository.RoleRepository;
 import com.sumutella.dolapcodecase.service.RoleQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
+@Transactional(readOnly = true)
 public class RoleQueryServiceImpl implements RoleQueryService {
     private final RoleRepository roleRepository;
 
