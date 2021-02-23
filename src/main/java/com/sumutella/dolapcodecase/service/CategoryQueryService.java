@@ -9,5 +9,11 @@ import java.util.List;
 public interface CategoryQueryService {
     List<IdCodeDisplayValueDTO> getCategories(String categoryTypeCode) throws NotFoundException;
 
+    List<IdCodeDisplayValueDTO> getCategories(Long categoryTypeId) throws NotFoundException;
+
     Category getCategory(Long categoryTypeId, Long categoryId) throws NotFoundException;
+
+    Category getCategory(Long categoryId) throws NotFoundException;
+
+
 }

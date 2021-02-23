@@ -16,4 +16,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     @Query("SELECT DISTINCT c FROM Category c INNER JOIN c.categoryType ct WHERE ct.id = :categoryTypeId AND c.id =:categoryId")
     Category findCategoryByCriteria(@Param("categoryTypeId") Long categoryTypeId, @Param("categoryId") Long categoryId);
+
+    List<Category> findAllByCategoryTypeId(Long categoryTypeId);
 }

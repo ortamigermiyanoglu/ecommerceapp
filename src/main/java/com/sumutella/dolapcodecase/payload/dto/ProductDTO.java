@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Setter
 @Getter
-public abstract class ProductDTO {
+public class ProductDTO {
     private Long id;
     private String productUsageStatusName;
     private String productCategoryName;
