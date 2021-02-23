@@ -17,10 +17,12 @@ public abstract class CreateProductRequest {
     @NotNull
     private Long brandId;
     @NotNull
+    private Long categoryTypeId;
+    @NotNull
     private Long categoryId;
     @NotNull
     @Range(min = 0, max = 100, message = "discount percentage must be between {min} and {max}")
-    private Integer discountPercantege;
+    private Integer discountPercentage;
     @DecimalMin("1.00")
     @Digits(integer = 6, fraction = 2)
     private BigDecimal price;

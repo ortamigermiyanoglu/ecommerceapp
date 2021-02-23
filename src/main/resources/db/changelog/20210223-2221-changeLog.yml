@@ -1,6 +1,6 @@
 databaseChangeLog:
     - changeSet:
-          id: 1614081201426-1
+          id: 1614118916066-1
           author: sumutella (generated)
           changes:
               - createTable:
@@ -35,7 +35,7 @@ databaseChangeLog:
                               type: VARCHAR(255)
                     tableName: brand
     - changeSet:
-          id: 1614081201426-2
+          id: 1614118916066-2
           author: sumutella (generated)
           changes:
               - createTable:
@@ -54,7 +54,7 @@ databaseChangeLog:
                               type: BIGINT
                     tableName: brand_produces_relation
     - changeSet:
-          id: 1614081201426-3
+          id: 1614118916066-3
           author: sumutella (generated)
           changes:
               - createTable:
@@ -87,9 +87,12 @@ databaseChangeLog:
                         - column:
                               name: name
                               type: VARCHAR(255)
+                        - column:
+                              name: category_type_id
+                              type: BIGINT
                     tableName: category
     - changeSet:
-          id: 1614081201426-4
+          id: 1614118916066-4
           author: sumutella (generated)
           changes:
               - createTable:
@@ -124,26 +127,7 @@ databaseChangeLog:
                               type: VARCHAR(255)
                     tableName: category_type
     - changeSet:
-          id: 1614081201426-5
-          author: sumutella (generated)
-          changes:
-              - createTable:
-                    columns:
-                        - column:
-                              constraints:
-                                  nullable: false
-                                  primaryKey: true
-                              name: category_id
-                              type: BIGINT
-                        - column:
-                              constraints:
-                                  nullable: false
-                                  primaryKey: true
-                              name: category_type_id
-                              type: BIGINT
-                    tableName: category_type_category_relation
-    - changeSet:
-          id: 1614081201426-6
+          id: 1614118916066-5
           author: sumutella (generated)
           changes:
               - createTable:
@@ -181,7 +165,7 @@ databaseChangeLog:
                               type: BIGINT
                     tableName: domain_value
     - changeSet:
-          id: 1614081201426-7
+          id: 1614118916066-6
           author: sumutella (generated)
           changes:
               - createTable:
@@ -213,44 +197,17 @@ databaseChangeLog:
                               type: VARCHAR(255)
                     tableName: domain_value_type
     - changeSet:
-          id: 1614081201426-8
+          id: 1614118916066-7
           author: sumutella (generated)
           changes:
               - createTable:
                     columns:
                         - column:
-                              autoIncrement: true
                               constraints:
                                   nullable: false
                                   primaryKey: true
                                   primaryKeyName: dressPK
-                              name: id
-                              type: BIGINT
-                        - column:
-                              name: create_time
-                              type: datetime
-                        - column:
-                              constraints:
-                                  nullable: false
-                              name: deleted
-                              type: BIT
-                        - column:
-                              name: last_update_time
-                              type: datetime
-                        - column:
-                              name: discount_percantege
-                              type: INT
-                        - column:
-                              name: price
-                              type: DECIMAL(8, 2)
-                        - column:
-                              name: brand_id
-                              type: BIGINT
-                        - column:
-                              name: category_id
-                              type: BIGINT
-                        - column:
-                              name: usage_status_id
+                              name: product_id
                               type: BIGINT
                         - column:
                               name: dress_type_id
@@ -260,7 +217,7 @@ databaseChangeLog:
                               type: BIGINT
                     tableName: dress
     - changeSet:
-          id: 1614081201426-9
+          id: 1614118916066-8
           author: sumutella (generated)
           changes:
               - createTable:
@@ -270,7 +227,7 @@ databaseChangeLog:
                               constraints:
                                   nullable: false
                                   primaryKey: true
-                                  primaryKeyName: shoePK
+                                  primaryKeyName: productPK
                               name: id
                               type: BIGINT
                         - column:
@@ -285,14 +242,14 @@ databaseChangeLog:
                               name: last_update_time
                               type: datetime
                         - column:
-                              name: discount_percantege
+                              name: description
+                              type: VARCHAR(255)
+                        - column:
+                              name: discount_percentage
                               type: INT
                         - column:
                               name: price
                               type: DECIMAL(8, 2)
-                        - column:
-                              name: size
-                              type: INT
                         - column:
                               name: brand_id
                               type: BIGINT
@@ -302,51 +259,81 @@ databaseChangeLog:
                         - column:
                               name: usage_status_id
                               type: BIGINT
+                    tableName: product
+    - changeSet:
+          id: 1614118916066-9
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: shoePK
+                              name: product_id
+                              type: BIGINT
+                        - column:
+                              name: size
+                              type: INT
                         - column:
                               name: shoe_type_id
                               type: BIGINT
                     tableName: shoe
     - changeSet:
-          id: 1614081201426-10
+          id: 1614118916066-10
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
                     baseColumnNames: category_id
-                    baseTableName: shoe
-                    constraintName: FK2ftjj059sbe8dwahxg7js0fng
+                    baseTableName: product
+                    constraintName: FK1mtsbur82frn64de7balymq9s
                     deferrable: false
                     initiallyDeferred: false
                     referencedColumnNames: id
                     referencedTableName: category
                     validate: true
     - changeSet:
-          id: 1614081201426-11
+          id: 1614118916066-11
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
-                    baseColumnNames: brand_id
+                    baseColumnNames: product_id
                     baseTableName: shoe
-                    constraintName: FK6tual7jmx8dojoowcnffradew
+                    constraintName: FK1n2va9suqi224i9f8l4vj5rhm
                     deferrable: false
                     initiallyDeferred: false
                     referencedColumnNames: id
-                    referencedTableName: brand
+                    referencedTableName: product
                     validate: true
     - changeSet:
-          id: 1614081201426-12
+          id: 1614118916066-12
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
                     baseColumnNames: usage_status_id
-                    baseTableName: dress
-                    constraintName: FK7jxcj4tn7l0btgef2rxxjn9hl
+                    baseTableName: product
+                    constraintName: FK3m1c0qt49lbbtn5s4n3bt6kon
                     deferrable: false
                     initiallyDeferred: false
                     referencedColumnNames: id
                     referencedTableName: domain_value
                     validate: true
     - changeSet:
-          id: 1614081201426-13
+          id: 1614118916066-13
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: category_type_id
+                    baseTableName: category
+                    constraintName: FKbnp66sfbd5fxd6ap2vanudxth
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: category_type
+                    validate: true
+    - changeSet:
+          id: 1614118916066-14
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
@@ -359,7 +346,7 @@ databaseChangeLog:
                     referencedTableName: domain_value
                     validate: true
     - changeSet:
-          id: 1614081201426-14
+          id: 1614118916066-15
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
@@ -372,7 +359,7 @@ databaseChangeLog:
                     referencedTableName: domain_value_type
                     validate: true
     - changeSet:
-          id: 1614081201426-15
+          id: 1614118916066-16
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
@@ -385,33 +372,7 @@ databaseChangeLog:
                     referencedTableName: domain_value
                     validate: true
     - changeSet:
-          id: 1614081201426-16
-          author: sumutella (generated)
-          changes:
-              - addForeignKeyConstraint:
-                    baseColumnNames: brand_id
-                    baseTableName: dress
-                    constraintName: FKet7v1r1w27bntsli4wkdhltkq
-                    deferrable: false
-                    initiallyDeferred: false
-                    referencedColumnNames: id
-                    referencedTableName: brand
-                    validate: true
-    - changeSet:
-          id: 1614081201426-17
-          author: sumutella (generated)
-          changes:
-              - addForeignKeyConstraint:
-                    baseColumnNames: category_type_id
-                    baseTableName: category_type_category_relation
-                    constraintName: FKfmlmipd5n7mcmolwiva36y6an
-                    deferrable: false
-                    initiallyDeferred: false
-                    referencedColumnNames: id
-                    referencedTableName: category_type
-                    validate: true
-    - changeSet:
-          id: 1614081201426-18
+          id: 1614118916066-17
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
@@ -424,7 +385,20 @@ databaseChangeLog:
                     referencedTableName: brand
                     validate: true
     - changeSet:
-          id: 1614081201426-19
+          id: 1614118916066-18
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: product_id
+                    baseTableName: dress
+                    constraintName: FKiub54qd8tkqvy3qjjv3qikigl
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: product
+                    validate: true
+    - changeSet:
+          id: 1614118916066-19
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
@@ -437,46 +411,20 @@ databaseChangeLog:
                     referencedTableName: domain_value
                     validate: true
     - changeSet:
-          id: 1614081201426-20
+          id: 1614118916066-20
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:
-                    baseColumnNames: usage_status_id
-                    baseTableName: shoe
-                    constraintName: FKm2oxxqlkltm9dsgrmg5h44fl6
+                    baseColumnNames: brand_id
+                    baseTableName: product
+                    constraintName: FKs6cydsualtsrprvlf2bb3lcam
                     deferrable: false
                     initiallyDeferred: false
                     referencedColumnNames: id
-                    referencedTableName: domain_value
+                    referencedTableName: brand
                     validate: true
     - changeSet:
-          id: 1614081201426-21
-          author: sumutella (generated)
-          changes:
-              - addForeignKeyConstraint:
-                    baseColumnNames: category_id
-                    baseTableName: category_type_category_relation
-                    constraintName: FKnh20l2hlla86rog8skpe3cqn2
-                    deferrable: false
-                    initiallyDeferred: false
-                    referencedColumnNames: id
-                    referencedTableName: category
-                    validate: true
-    - changeSet:
-          id: 1614081201426-22
-          author: sumutella (generated)
-          changes:
-              - addForeignKeyConstraint:
-                    baseColumnNames: category_id
-                    baseTableName: dress
-                    constraintName: FKo12urvv52ex6vqgmvbvm6apgc
-                    deferrable: false
-                    initiallyDeferred: false
-                    referencedColumnNames: id
-                    referencedTableName: category
-                    validate: true
-    - changeSet:
-          id: 1614081201426-23
+          id: 1614118916066-21
           author: sumutella (generated)
           changes:
               - addForeignKeyConstraint:

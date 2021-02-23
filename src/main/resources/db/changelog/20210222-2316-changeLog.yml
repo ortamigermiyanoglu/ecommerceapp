@@ -27,13 +27,10 @@ databaseChangeLog:
               INSERT INTO category_type (code,name, description, deleted, create_time) VALUES ('MAN','Man','contains products for men',0,CURRENT_TIMESTAMP());
               INSERT INTO category_type(code,name, description, deleted, create_time) VALUES ('WOMAN','Woman','contains products for womans',0,CURRENT_TIMESTAMP());
 
-              INSERT INTO category (code,name, description, deleted, create_time) VALUES ('CLOTHING','Clothing','contains clothing products',0,CURRENT_TIMESTAMP());
-              INSERT INTO category (code,name, description, deleted, create_time) VALUES ('SHOES','Shoe','contains shoe products',0,CURRENT_TIMESTAMP());
-
-              INSERT INTO category_type_category_relation (category_type_id, category_id) VALUES ((SELECT id FROM category_type WHERE code = 'MAN'), (SELECT id FROM category WHERE code = 'CLOTHING'));
-              INSERT INTO category_type_category_relation (category_type_id, category_id) VALUES  ((SELECT id FROM category_type WHERE code = 'MAN'), (SELECT id FROM category WHERE code = 'SHOES') );
-              INSERT INTO category_type_category_relation (category_type_id, category_id) VALUES ((SELECT id FROM category_type WHERE code = 'WOMAN'), (SELECT id FROM category WHERE code = 'CLOTHING'));
-              INSERT INTO category_type_category_relation (category_type_id, category_id) VALUES  ((SELECT id FROM category_type WHERE code = 'WOMAN'), (SELECT id FROM category WHERE code = 'SHOES') );
+              INSERT INTO category (code,name, description, category_type_id, deleted, create_time) VALUES ('CLOTHING','Clothing','contains clothing products',(SELECT id FROM category_type WHERE code = 'MAN'),0,CURRENT_TIMESTAMP());
+              INSERT INTO category (code,name, description, category_type_id, deleted, create_time) VALUES ('SHOES','Shoe','contains shoe products',(SELECT id FROM category_type WHERE code = 'MAN'),0,CURRENT_TIMESTAMP());
+              INSERT INTO category (code,name, description, category_type_id, deleted, create_time) VALUES ('CLOTHING','Clothing','contains clothing products',(SELECT id FROM category_type WHERE code = 'WOMAN'),0,CURRENT_TIMESTAMP());
+              INSERT INTO category (code,name, description, category_type_id, deleted, create_time) VALUES ('SHOES','Shoe','contains shoe products',(SELECT id FROM category_type WHERE code = 'WOMAN'),0,CURRENT_TIMESTAMP());
 
               INSERT INTO domain_value(code, name, description, domain_value_type_id, deleted, create_time) VALUES ('NEW','New', 'New Product',(SELECT id FROM domain_value_type WHERE code = 'USAGE_STATUS'),0,CURRENT_TIMESTAMP());
               INSERT INTO domain_value(code, name, description, domain_value_type_id, deleted, create_time) VALUES ('LESS_USED','Less Used', 'Less Used Product',(SELECT id FROM domain_value_type WHERE code = 'USAGE_STATUS'),0,CURRENT_TIMESTAMP());

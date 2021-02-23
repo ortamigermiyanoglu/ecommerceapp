@@ -27,6 +27,7 @@ public class ShoeProductController {
     private final CategoryQueryService categoryQueryService;
     private final ShoeCommandService shoeCommandService;
     private final ShoeQueryService shoeQueryService;
+    private final CategoryTypeQueryService categoryTypeQueryService;
 
 
     @GetMapping("/products")
@@ -37,6 +38,7 @@ public class ShoeProductController {
         response.setBrands(brandQueryService.getBrands(BusinesConstants.SHOE_BRAND_TYPE.getCode()));
         response.setCategories(categoryQueryService.getCategories(BusinesConstants.MAN_CATEGORY_TYPE.getCode()));
         response.setUsageStatuses(domainValueQueryService.getDomainValues(BusinesConstants.USAGE_STATUS.getCode()));
+        response.setCategoryTypes(categoryTypeQueryService.getCategoryTypes());
         return ResponseEntity.ok(response);
     }
 

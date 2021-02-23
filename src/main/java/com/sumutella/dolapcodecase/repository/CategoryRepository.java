@@ -11,6 +11,9 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-    @Query("SELECT DISTINCT c FROM Category c INNER JOIN c.categoryTypes ct where ct.code = :categoryTypeCode")
+    @Query("SELECT DISTINCT c FROM Category c INNER JOIN c.categoryType ct where ct.code = :categoryTypeCode")
     List<Category> findAllByCategoryTypeCode(@Param("categoryTypeCode") String categoryTypeCode);
+
+    @Query("SELECT DISTINCT c FROM Category c INNER JOIN c.categoryType ct WHERE ct.id = :categoryTypeId AND c.id =:categoryId")
+    Category findCategoryByCriteria(@Param("categoryTypeId") Long categoryTypeId, @Param("categoryId") Long categoryId);
 }

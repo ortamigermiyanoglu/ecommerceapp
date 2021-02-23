@@ -9,10 +9,9 @@ import java.math.BigDecimal;
 @Getter
 public abstract class ProductDTO {
     private Long id;
-    private String usageStatusName;
-    private String brandName;
-    private String categoryName;
-    private String description;
-    private BigDecimal price;
-    private Integer discountPercentage;
+    private String productUsageStatusName;
+    private String productCategoryName;
+    private String productDescription;
+    private BigDecimal productPrice;
+    private Integer productDiscountPercentage;
 }

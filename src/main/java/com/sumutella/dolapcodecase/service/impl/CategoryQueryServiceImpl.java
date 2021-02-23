@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,8 +32,11 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     }
 
     @Override
-    public Category getCategory(Long categoryId) throws NotFoundException {
-        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
-        return optionalCategory.orElseThrow(() -> new NotFoundException("No category found with category id " + categoryId));
+    public Category getCategory(Long categoryTypeId, Long categoryId) throws NotFoundException {
+        Category category = categoryRepository.findCategoryByCriteria(categoryTypeId, categoryId);
+        if (Objects.isNull(category)) {
+            throw new NotFoundException("No category found with category id " + categoryId);
+        }
+        return category;
     }
 }
