@@ -22,13 +22,13 @@ spring:
       hibernate:
         default_schema: dolapcodecase
         dialect: org.hibernate.dialect.MySQL5Dialect
-  ## for integration test please comment out lines  [25,27]
-  database: h2
-  hibernate:
-    ddl-auto: create-drop
-  h2:
-    console:
-      enabled: true
+  ## for integration test please comment out lines  [25,31]
+#  database: h2
+#  hibernate:
+#    ddl-auto: create-drop
+#  h2:
+#    console:
+#      enabled: true
 
 logging:
   level:
