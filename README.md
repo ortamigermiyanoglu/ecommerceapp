@@ -55,6 +55,17 @@ Our controller to create shoe products is http://127.0.0.1:8080/swagger-ui.html#
 
 The needed information to be able to create a shoe product is in the response of http://127.0.0.1:8080/swagger-ui.html#/shoe-product-controller/getCreateShoeProductModelUsingGET 
 
+a sample to create a shoe product is as in the below screenshot
+
+![Alt text](src/main/resources/appscreenshots/create_shoe.png?raw=true "Create Shoe Request")
 
 
+if the response is   "message": "Product created successfully" then the product is created successfully
+
+
+to list the created product go to http://127.0.0.1:8080/swagger-ui.html#/category-type-controller/getProductsInCategoryUsingGET_1 
+
+with category type and category id you can list the products in the category
+
+![Alt text](src/main/resources/appscreenshots/list_product.png?raw=true "List Product Metadata")
 
