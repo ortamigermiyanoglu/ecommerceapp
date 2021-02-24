@@ -70,3 +70,9 @@ with category type and category id you can list the products in the category
 ![Alt text](src/main/resources/appscreenshots/list_product_metadata.png?raw=true "List Product Metadata")
 
 you alson can list product metadata by only providing category id http://127.0.0.1:8080/swagger-ui.html#/category-controller/getProductsInCategoryUsingGET
+
+**H2 DB CONFIG FOR INTEGRATION TESTS**
+
+Comment and comment out lines as instructed in the application yml
+
+![Alt text](src/main/resources/appscreenshots/integration_test_db_config.png?raw=true "Integration Test DB Config")
