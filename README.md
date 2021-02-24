@@ -67,5 +67,5 @@ to list the created product go to http://127.0.0.1:8080/swagger-ui.html#/categor
 
 with category type and category id you can list the products in the category
 
-![Alt text](src/main/resources/appscreenshots/list_product.png?raw=true "List Product Metadata")
+![Alt text](src/main/resources/appscreenshots/list_product_metadata.png?raw=true "List Product Metadata")
 
