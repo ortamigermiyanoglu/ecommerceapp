@@ -29,7 +29,7 @@ public class ProductQueryServiceImpl implements ProductQueryService {
         Category category = categoryQueryService.getCategory(categoryTypeId, categoryId);
         List<Product> productList = productRepository.findAllByCategory(category);
         if (CollectionUtils.isEmpty(productList)) {
-            throw new NotFoundException("No product found with category type id" + categoryTypeId + " and category id " + categoryId);
+            throw new NotFoundException("No product found with category type id: " + categoryTypeId + " and category id: " + categoryId);
         }
         return productList.stream().map(product -> mapper.map(product, ProductDTO.class)).collect(Collectors.toList());
     }
@@ -39,7 +39,7 @@ public class ProductQueryServiceImpl implements ProductQueryService {
         Category category = categoryQueryService.getCategory(categoryId);
         List<Product> productList = productRepository.findAllByCategory(category);
         if (CollectionUtils.isEmpty(productList)) {
-            throw new NotFoundException("No product found with category id " + categoryId);
+            throw new NotFoundException("No product found with category id: " + categoryId);
         }
         return productList.stream().map(product -> mapper.map(product, ProductDTO.class)).collect(Collectors.toList());
     }

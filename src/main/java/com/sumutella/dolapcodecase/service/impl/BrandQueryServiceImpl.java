@@ -27,7 +27,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     public List<IdCodeDisplayValueDTO> getBrands(String brandTypeCode) throws NotFoundException {
         List<Brand> brandList = brandRepository.findAllByBrandTypeCode(brandTypeCode);
         if (CollectionUtils.isEmpty(brandList)) {
-            throw new NotFoundException("No Brand found with brand type code" + brandTypeCode);
+            throw new NotFoundException("No Brand found with brand type code " + brandTypeCode);
         }
         return brandList.stream().map(brand -> mapper.map(brand, IdCodeDisplayValueDTO.class)).collect(Collectors.toList());
     }
@@ -35,7 +35,7 @@ public class BrandQueryServiceImpl implements BrandQueryService {
     @Override
     public Brand getBrand(Long brandId) throws NotFoundException {
         Optional<Brand> optionalBrand = brandRepository.findById(brandId);
-        return optionalBrand.orElseThrow(() -> new NotFoundException("No Brand Found with brand id" + brandId));
+        return optionalBrand.orElseThrow(() -> new NotFoundException("No Brand Found with brand id " + brandId));
     }
 
 }

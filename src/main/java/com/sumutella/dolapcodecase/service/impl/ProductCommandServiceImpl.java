@@ -26,7 +26,7 @@ public class ProductCommandServiceImpl implements ProductCommandService {
     public MessageResponse deleteProduct(Long productId) throws NotFoundException {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         if (!optionalProduct.isPresent()) {
-            throw new NotFoundException("No product find with product id " + productId);
+            throw new NotFoundException("No product find with product id: " + productId);
         }
         Product product = optionalProduct.get();
         product.setDeleted(true);
@@ -44,6 +44,6 @@ public class ProductCommandServiceImpl implements ProductCommandService {
         productRepository.save(product);
 
 
-        return new MessageResponse("Product with id " + productId + " deleted successfully");
+        return new MessageResponse("Product with id: " + productId + " deleted successfully");
     }
 }

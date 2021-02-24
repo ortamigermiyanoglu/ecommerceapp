@@ -27,7 +27,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     public List<IdCodeDisplayValueDTO> getCategories(String categoryTypeCode) throws NotFoundException {
         List<Category> categoryList = categoryRepository.findAllByCategoryTypeCode(categoryTypeCode);
         if (CollectionUtils.isEmpty(categoryList)) {
-            throw new NotFoundException("No category found with category type code " + categoryTypeCode);
+            throw new NotFoundException("No category found with category type code: " + categoryTypeCode);
         }
         return categoryList.stream().map(category -> mapper.map(category, IdCodeDisplayValueDTO.class)).collect(Collectors.toList());
     }
@@ -36,7 +36,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     public List<IdCodeDisplayValueDTO> getCategories(Long categoryTypeId) throws NotFoundException {
         List<Category> categoryList = categoryRepository.findAllByCategoryTypeId(categoryTypeId);
         if (CollectionUtils.isEmpty(categoryList)) {
-            throw new NotFoundException("No category found with category type id " + categoryTypeId);
+            throw new NotFoundException("No category found with category type id: " + categoryTypeId);
         }
         return categoryList.stream().map(category -> mapper.map(category, IdCodeDisplayValueDTO.class)).collect(Collectors.toList());
     }
@@ -45,7 +45,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     public Category getCategory(Long categoryTypeId, Long categoryId) throws NotFoundException {
         Category category = categoryRepository.findCategoryByCriteria(categoryTypeId, categoryId);
         if (Objects.isNull(category)) {
-            throw new NotFoundException("No category found with category id " + categoryId + " and category type id " + categoryTypeId);
+            throw new NotFoundException("No category found with category id: " + categoryId + " and category type id: " + categoryTypeId);
         }
         return category;
     }
@@ -53,6 +53,6 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
     @Override
     public Category getCategory(Long categoryId) throws NotFoundException {
         Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
-        return optionalCategory.orElseThrow(() -> new NotFoundException("No Category Found with category id" + categoryId));
+        return optionalCategory.orElseThrow(() -> new NotFoundException("No Category Found with category id: " + categoryId));
     }
 }

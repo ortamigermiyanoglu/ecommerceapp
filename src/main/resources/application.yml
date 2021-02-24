@@ -1,33 +1,34 @@
 spring:
-  ## for integration test please comment lines  [3,9]
+  ## for integration test please comment lines  [4,9]
   datasource:
-    #    url: jdbc:mysql://localhost:3306/dolapcodecase
-    #    username: root
-    #    password: root
-    #  liquibase:
-    #    change-log: classpath:db/changelog/liquibase-changeLog.yaml
-    #    enabled: true
-    ## for integration test please comment lines  [12,18]
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/dolapcodecase
+    username: root
+    password: root
+  liquibase:
+    change-log: classpath:db/changelog/liquibase-changeLog.yaml
+    enabled: true
+    ## for integration test please comment out lines  [11,14]
+  #    url: jdbc:h2:mem:testdb
+  #    username: sa
+  #    password:
+  #    driver-class-name: org.h2.Driver
   jpa:
-    #    show-sql: true
-    #    database: mysql
-    #    hibernate:
-    #      ddl-auto: none
-    #    properties:
-    #      hibernate:
-    #        default_schema: dolapcodecase
-    #        dialect: org.hibernate.dialect.MySQL5Dialect
-    database: h2
+    ## for integration test please comment lines  [17,24]
+    show-sql: true
+    database: mysql
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: dolapcodecase
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  ## for integration test please comment out lines  [25,27]
+  database: h2
+  hibernate:
+    ddl-auto: create-drop
   h2:
     console:
       enabled: true
-
 
 logging:
   level:

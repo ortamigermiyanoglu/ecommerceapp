@@ -19,11 +19,13 @@ public class AuthenticationController {
     private final UserQueryService userQueryService;
 
     @PostMapping("/signup")
+    @ApiOperation(value = "", notes = "sign up to ecommerce app")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         return ResponseEntity.ok(userCommandService.createUser(signUpRequest));
     }
 
     @PostMapping("/signin")
+    @ApiOperation(value = "", notes = "sign in to ecommerce app")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(userQueryService.signin(loginRequest));
     }

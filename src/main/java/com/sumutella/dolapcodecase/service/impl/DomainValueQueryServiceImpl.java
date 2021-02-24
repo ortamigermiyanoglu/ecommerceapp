@@ -26,7 +26,7 @@ public class DomainValueQueryServiceImpl implements DomainValueQueryService {
     public List<IdCodeDisplayValueDTO> getDomainValues(String domainValueTypeCode) throws NotFoundException {
         List<DomainValue> domainValueList = domainValueRepository.findAllByDomainValueTypeCode(domainValueTypeCode);
         if (CollectionUtils.isEmpty(domainValueList)) {
-            throw new NotFoundException("No domain value found with domain value type code " + domainValueTypeCode);
+            throw new NotFoundException("No domain value found with domain value type code: " + domainValueTypeCode);
         }
 
         return domainValueList.stream().map(domainValue -> mapper.map(domainValue, IdCodeDisplayValueDTO.class)).collect(Collectors.toList());
@@ -35,6 +35,6 @@ public class DomainValueQueryServiceImpl implements DomainValueQueryService {
     @Override
     public DomainValue getDomainValue(Long domainValueId) throws NotFoundException {
         Optional<DomainValue> optionalDomainValue = domainValueRepository.findById(domainValueId);
-        return optionalDomainValue.orElseThrow(() -> new NotFoundException("No domain value found with domain value id " + domainValueId));
+        return optionalDomainValue.orElseThrow(() -> new NotFoundException("No domain value found with domain value id: " + domainValueId));
     }
 }
