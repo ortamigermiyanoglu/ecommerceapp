@@ -1,5 +1,6 @@
 package com.sumutella.dolapcodecase.service.impl;
 
+import com.sumutella.dolapcodecase.data.RequestFactory;
 import com.sumutella.dolapcodecase.exception.CommandOperationFailedException;
 import com.sumutella.dolapcodecase.exception.NotFoundException;
 import com.sumutella.dolapcodecase.payload.dto.ProductDTO;
@@ -22,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class ShoeCommandServiceImplTest {
+class ShoeCommandServiceImplIntegrationTest {
     ShoeCommandService service;
     @Autowired
     private DomainValueQueryService domainValueQueryService;
@@ -42,16 +43,7 @@ class ShoeCommandServiceImplTest {
 
     @Test
     void createShoe() throws NotFoundException, CommandOperationFailedException {
-        CreateShoeRequest createShoeRequest = new CreateShoeRequest();
-        createShoeRequest.setBrandId(1L); //Adidas
-        createShoeRequest.setCategoryId(2L); //Shoes
-        createShoeRequest.setDescription("paraya ihtiyacim var satiyorum");
-        createShoeRequest.setCategoryTypeId(1L); //Man
-        createShoeRequest.setDiscountPercentage(0);
-        createShoeRequest.setPrice(BigDecimal.valueOf(499.99));
-        createShoeRequest.setShoeTypeId(9L); // Running shoe
-        createShoeRequest.setUsageStatusId(1L); // New
-        createShoeRequest.setSize(42);
+        CreateShoeRequest createShoeRequest = RequestFactory.createShoeRequest();
 
         service.createShoe(createShoeRequest);
 
@@ -59,24 +51,13 @@ class ShoeCommandServiceImplTest {
         assertEquals(1, productDTOList.size());
         assertEquals("paraya ihtiyacim var satiyorum", productDTOList.get(0).getProductDescription());
         assertEquals(BigDecimal.valueOf(499.99), productDTOList.get(0).getProductPrice());
-        assertEquals("Shoes", productDTOList.get(0).getProductCategoryName());
+        assertEquals("Shoe", productDTOList.get(0).getProductCategoryName());
     }
 
     @Test
-    void createShoeV2() throws NotFoundException, CommandOperationFailedException {
+    void createShoeV2() {
 
-        CreateShoeRequest createShoeRequest = new CreateShoeRequest();
-        createShoeRequest.setBrandId(1L); //Adidas
-        createShoeRequest.setCategoryId(2L); //Shoes
-        createShoeRequest.setDescription("hediye geldi satiyorum");
-        createShoeRequest.setCategoryTypeId(10L); //THIS WILL THROW EXCEPTION
-        createShoeRequest.setDiscountPercentage(0);
-        createShoeRequest.setPrice(BigDecimal.valueOf(499.99));
-        createShoeRequest.setShoeTypeId(9L); // Running shoe
-        createShoeRequest.setUsageStatusId(1L); // New
-
-
-        createShoeRequest.setSize(42);
+        CreateShoeRequest createShoeRequest = RequestFactory.createShoeRequestWrongData();
 
         assertThrows(NotFoundException.class, () -> service.createShoe(createShoeRequest));
 

@@ -7,6 +7,4 @@ import com.sumutella.dolapcodecase.payload.response.MessageResponse;
 
 public interface ShoeCommandService {
     MessageResponse createShoe(CreateShoeRequest createShoeRequest) throws NotFoundException, CommandOperationFailedException;
-
-    void deleteShoe(Long productId);
 }

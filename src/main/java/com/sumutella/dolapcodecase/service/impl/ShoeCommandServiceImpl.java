@@ -49,10 +49,4 @@ public class ShoeCommandServiceImpl implements ShoeCommandService {
 
     }
 
-    @Override
-    public void deleteShoe(Long productId) {
-        Shoe shoe = shoeRepository.getOne(productId);
-        shoe.setDeleted(true);
-        shoeRepository.save(shoe);
-    }
 }
