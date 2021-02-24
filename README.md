@@ -1,6 +1,6 @@
 # dolapcodecase
 
-**CREATE DATABASE, TABLES AND INITIAL DATA MIGRATION **
+**CREATE DATABASE, TABLES AND INITIAL DATA MIGRATION**
 
 in mysql server create schema under root user with following:
 
@@ -48,6 +48,12 @@ Go back  http://127.0.0.1:8080/swagger-ui.html and you will see "Authorize" butt
 Click Authorize ann type "Bearer Ctrl+V", i.e. After typing Bearer paste your token as following
 
 ![Alt text](src/main/resources/appscreenshots/authorize.png?raw=true "Authorize Button")
+
+**CREATE SHOE PRODUCTS AND LIST THEM BY CATEGORY**
+
+Our controller to create shoe products is http://127.0.0.1:8080/swagger-ui.html#/shoe-product-controller 
+
+The needed information to be able to create a product is in the response of http://127.0.0.1:8080/swagger-ui.html#/shoe-product-controller/getCreateShoeProductModelUsingGET 
 
 
 
