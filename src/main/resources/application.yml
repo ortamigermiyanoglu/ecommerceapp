@@ -6,7 +6,7 @@ spring:
     password: root
   liquibase:
     change-log: classpath:db/changelog/liquibase-changeLog.yaml
-    enabled: true
+    enabled: false
     ## for integration test please comment out lines  [11,14]
   #    url: jdbc:h2:mem:testdb
   #    username: sa

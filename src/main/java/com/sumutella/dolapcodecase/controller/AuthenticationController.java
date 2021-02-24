@@ -4,6 +4,7 @@ import com.sumutella.dolapcodecase.payload.request.LoginRequest;
 import com.sumutella.dolapcodecase.payload.request.SignUpRequest;
 import com.sumutella.dolapcodecase.service.UserCommandService;
 import com.sumutella.dolapcodecase.service.UserQueryService;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
