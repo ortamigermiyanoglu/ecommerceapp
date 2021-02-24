@@ -32,7 +32,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             "/webjars/**",
             "/api/auth/signin",
             "/api/auth/signup",
-            "/swagger-ui.html#/auth-controller/**"
+            "/swagger-ui.html#/auth-controller/**",
+            "/h2-console/**",
+            "/favicon.ico"
     };
     private final UserDetailsService userDetailsService;
     private final AuthEntryPointJwt unauthorizedHandler;

@@ -1,13 +1,11 @@
 package com.sumutella.dolapcodecase.service.impl;
 
-import com.sumutella.dolapcodecase.domain.*;
+import com.sumutella.dolapcodecase.domain.Product;
+import com.sumutella.dolapcodecase.domain.Shoe;
 import com.sumutella.dolapcodecase.exception.NotFoundException;
-import com.sumutella.dolapcodecase.payload.request.CreateProductRequest;
 import com.sumutella.dolapcodecase.payload.response.MessageResponse;
 import com.sumutella.dolapcodecase.repository.ProductRepository;
 import com.sumutella.dolapcodecase.repository.ShoeRepository;
-import com.sumutella.dolapcodecase.service.BrandQueryService;
-import com.sumutella.dolapcodecase.service.CategoryQueryService;
 import com.sumutella.dolapcodecase.service.DomainValueQueryService;
 import com.sumutella.dolapcodecase.service.ProductCommandService;
 import com.sumutella.dolapcodecase.util.BusinesConstants;
@@ -22,26 +20,24 @@ import java.util.Optional;
 @Transactional
 @RequiredArgsConstructor
 public class ProductCommandServiceImpl implements ProductCommandService {
-    private final BrandQueryService brandQueryService;
-    private final CategoryQueryService categoryQueryService;
     private final DomainValueQueryService domainValueQueryService;
     private final ProductRepository productRepository;
     private final ShoeRepository shoeRepository;
 
-    @Override
-    public Product createProduct(CreateProductRequest createProductRequest) throws NotFoundException {
-        Brand brand = brandQueryService.getBrand(createProductRequest.getBrandId());
-        DomainValue usageStatus = domainValueQueryService.getDomainValue(createProductRequest.getUsageStatusId());
-        Category category = categoryQueryService.getCategory(createProductRequest.getCategoryTypeId(), createProductRequest.getCategoryId());
-        Product product = new Product();
-        product.setBrand(brand);
-        product.setCategory(category);
-        product.setUsageStatus(usageStatus);
-        product.setPrice(createProductRequest.getPrice());
-        product.setDescription(createProductRequest.getDescription());
-        product.setDiscountPercentage(createProductRequest.getDiscountPercentage());
-        return productRepository.save(product);
-    }
+//    @Override
+//    public Product createProduct(CreateProductRequest createProductRequest) throws NotFoundException {
+//        Brand brand = brandQueryService.getBrand(createProductRequest.getBrandId());
+//        DomainValue usageStatus = domainValueQueryService.getDomainValue(createProductRequest.getUsageStatusId());
+//        Category category = categoryQueryService.getCategory(createProductRequest.getCategoryTypeId(), createProductRequest.getCategoryId());
+//        Product product = new Product();
+//        product.setBrand(brand);
+//        product.setCategory(category);
+//        product.setUsageStatus(usageStatus);
+//        product.setPrice(createProductRequest.getPrice());
+//        product.setDescription(createProductRequest.getDescription());
+//        product.setDiscountPercentage(createProductRequest.getDiscountPercentage());
+//        return productRepository.save(product);
+//    }
 
     @Override
     public MessageResponse deleteProduct(Long productId) throws NotFoundException {
