@@ -39,6 +39,6 @@ Now, let's sign in and get our token to authorize privilige to apis http://127.0
 After sending username and password appropriately, we'll get our token as following
 
 
-![Alt text](src/main/resources/appscreenshots/get_jwt_token.png?raw=true "Sign Up")
+![Alt text](src/main/resources/appscreenshots/get_jwt_token.png?raw=true "Sign In")
 
 
