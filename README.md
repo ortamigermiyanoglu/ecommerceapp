@@ -34,3 +34,11 @@ if the response is as following then new user created
 
   "message": "User registered successfully!"
 
+Now, let's sign in and get our token to authorize privilige to apis http://127.0.0.1:8080/swagger-ui.html#/authentication-controller/authenticateUserUsingPOST
+
+After sending username and password appropriately, we'll get our token as following
+
+
+![Alt text](src/main/resources/appscreenshots/get_jwt_token.png?raw=true "Sign Up")
+
+
