@@ -53,7 +53,7 @@ Click Authorize ann type "Bearer Ctrl+V", i.e. After typing Bearer paste your to
 
 Our controller to create shoe products is http://127.0.0.1:8080/swagger-ui.html#/shoe-product-controller 
 
-The needed information to be able to create a product is in the response of http://127.0.0.1:8080/swagger-ui.html#/shoe-product-controller/getCreateShoeProductModelUsingGET 
+The needed information to be able to create a shoe product is in the response of http://127.0.0.1:8080/swagger-ui.html#/shoe-product-controller/getCreateShoeProductModelUsingGET 
 
 
 
