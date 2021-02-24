@@ -57,7 +57,7 @@ The needed information to be able to create a shoe product is in the response of
 
 a sample to create a shoe product is as in the below screenshot
 
-![Alt text](src/main/resources/appscreenshots/create_shoe.png?raw=true "Create Shoe Request")
+![Alt text](src/main/resources/appscreenshots/create_shoe_product.png?raw=true "Create Shoe Request")
 
 
 if the response is   "message": "Product created successfully" then the product is created successfully
