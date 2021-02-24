@@ -1,6 +1,6 @@
 package com.sumutella.dolapcodecase.domain;
 
-import com.sumutella.dolapcodecase.domain.domainutil.ERole;
+import com.sumutella.dolapcodecase.util.ERole;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

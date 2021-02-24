@@ -1,9 +1,9 @@
 package com.sumutella.dolapcodecase.service.impl;
 
 import com.sumutella.dolapcodecase.domain.Role;
-import com.sumutella.dolapcodecase.domain.domainutil.ERole;
 import com.sumutella.dolapcodecase.repository.RoleRepository;
 import com.sumutella.dolapcodecase.service.RoleQueryService;
+import com.sumutella.dolapcodecase.util.ERole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

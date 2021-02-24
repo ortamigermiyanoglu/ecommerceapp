@@ -1,4 +1,4 @@
-package com.sumutella.dolapcodecase.domain.domainutil;
+package com.sumutella.dolapcodecase.util;
 
 public enum ERole {
     ROLE_USER,

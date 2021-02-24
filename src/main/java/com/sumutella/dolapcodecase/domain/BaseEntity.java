@@ -29,6 +29,7 @@ public abstract class BaseEntity {
     @UpdateTimestamp
     private LocalDateTime lastUpdateTime;
     @NotNull
+    @Setter(AccessLevel.PUBLIC)
     private Boolean deleted = false;
 
 }

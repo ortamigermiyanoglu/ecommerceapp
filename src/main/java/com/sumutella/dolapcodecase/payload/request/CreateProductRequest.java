@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public abstract class CreateProductRequest {
+public class CreateProductRequest {
     @NotNull
     private Long usageStatusId;
     @NotNull

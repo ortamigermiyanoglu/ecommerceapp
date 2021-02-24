@@ -30,7 +30,7 @@ public class ShoeProductController {
     private final CategoryTypeQueryService categoryTypeQueryService;
 
 
-    @GetMapping("/products")
+    @GetMapping("/shoes")
     @ApiOperation(value = "", notes = "get create model for shoe product")
     public ResponseEntity<CreateShoeModelResponse> getCreateShoeProductModel() throws NotFoundException {
         CreateShoeModelResponse response = new CreateShoeModelResponse();
@@ -42,17 +42,16 @@ public class ShoeProductController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/products")
+    @PostMapping("/shoes")
     @ApiOperation(value = "", notes = "create shoe product")
     public ResponseEntity<MessageResponse> createProduct(@RequestBody @Valid CreateShoeRequest createShoeRequest) throws NotFoundException, CommandOperationFailedException {
         return ResponseEntity.ok(shoeCommandService.createShoe(createShoeRequest));
     }
 
-    @PostMapping("/products/{productId}")
+    @PostMapping("/shoes/{productId}")
     @ApiOperation(value = "", notes = "get shoe product")
     public ResponseEntity<ShoeResponse> getProduct(@Positive @Valid @PathVariable("productId") Long productId) throws NotFoundException, CommandOperationFailedException {
         return ResponseEntity.ok(new ShoeResponse(shoeQueryService.getShoe(productId)));
     }
-
 
 }

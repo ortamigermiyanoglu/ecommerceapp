@@ -1,7 +1,7 @@
 package com.sumutella.dolapcodecase.repository;
 
 import com.sumutella.dolapcodecase.domain.Role;
-import com.sumutella.dolapcodecase.domain.domainutil.ERole;
+import com.sumutella.dolapcodecase.util.ERole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

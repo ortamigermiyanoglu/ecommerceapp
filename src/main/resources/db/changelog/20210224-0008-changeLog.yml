@@ -1,0 +1,26 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1614125303806-1
+          author: sumutella (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: deleted
+                              type: bit
+                    tableName: dress
+    - changeSet:
+          id: 1614125303806-2
+          author: sumutella (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: deleted
+                              type: bit
+                    tableName: shoe
+

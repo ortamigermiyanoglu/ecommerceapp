@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Setter
@@ -15,11 +16,11 @@ import javax.persistence.*;
 public class Dress {
     @Id
     private Long id;
-
+    @NotNull
+    private Boolean deleted = false;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dress_type_id")
     private DomainValue dressType;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dress_size_id")
     private DomainValue size;

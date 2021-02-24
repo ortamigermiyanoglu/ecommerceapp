@@ -2,11 +2,11 @@ package com.sumutella.dolapcodecase.service.impl;
 
 import com.sumutella.dolapcodecase.domain.Role;
 import com.sumutella.dolapcodecase.domain.User;
-import com.sumutella.dolapcodecase.domain.domainutil.ERole;
 import com.sumutella.dolapcodecase.payload.request.SignUpRequest;
 import com.sumutella.dolapcodecase.payload.response.MessageResponse;
 import com.sumutella.dolapcodecase.repository.UserRepository;
 import com.sumutella.dolapcodecase.service.UserCommandService;
+import com.sumutella.dolapcodecase.util.ERole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
