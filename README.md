@@ -24,7 +24,7 @@ http://127.0.0.1:8080/swagger-ui.html
 
 -- SIGN UP, SIGN IN AND AUTHENTICATE IN SWAGGER WITH TOKEN--
 
-open autehntication-api-controller and go to signup api end point
+open autehntication-api-controller http://127.0.0.1:8080/swagger-ui.html#/authentication-controller and go to signup api end point
 
 ![Alt text](src/main/resources/appscreenshots/signup.png?raw=true "Sign Up")
 
